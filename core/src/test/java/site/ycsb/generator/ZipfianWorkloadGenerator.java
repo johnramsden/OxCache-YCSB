@@ -47,6 +47,7 @@ public class ZipfianWorkloadGenerator {
 
   public void generateWorkloadFile() throws IOException {
     System.out.println("Creating " + this.file_name);
+    new File(directory).mkdirs();
     File output = new File(this.directory + this.file_name);
     FileOutputStream stream = new FileOutputStream(output);
 
