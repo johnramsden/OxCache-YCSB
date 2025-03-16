@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Random;
+import java.nio.ByteOrder;
 
 import static org.testng.AssertJUnit.assertFalse;
 
@@ -63,6 +64,7 @@ public class ZipfianWorkloadGenerator {
 
       // Prepare a ByteBuffer for binary output
       ByteBuffer arr = ByteBuffer.allocate(4 * iterations);
+      arr.order(ByteOrder.LITTLE_ENDIAN);
 
       long min = 0;
       long max = total_ids - 1;
