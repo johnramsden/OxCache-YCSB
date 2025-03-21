@@ -8,11 +8,11 @@ public class Workload {
     public String evictionType;
 
     public String toString() {
-        return "chunkSize=" + chunkSize +
+        return "chunk_size=" + chunkSize +
                ",latency=" + latency +
-               ",evictThresholdHigh=" + evictThresholdHigh +
-               ",evictThresholdLow=" + evictThresholdLow +
-               ",evictionType=" + evictionType;
+               ",evict_high_water=" + evictThresholdHigh +
+               ",evict_low_water=" + evictThresholdLow +
+               ",eviction_type=" + evictionType;
     }
 
     Workload(int chunkSize, int latency, int evictThresholdHigh, int evictThresholdLow, String evictionType) {
