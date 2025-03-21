@@ -32,11 +32,11 @@ public class ZipfianWorkloadGenerator {
   }
 
   public ZipfianWorkloadGenerator(Workload w, distributionType distributionType, int working_set_ratio, int zone_size,
-                                  int num_zones, int iterations, String directory) {
+                                  int num_zones, String directory) {
     this.workload = w;
     this.distributionType = distributionType;
     this.working_set_ratio = working_set_ratio;
-    this.iterations = iterations;
+    this.iterations = w.iterations;
     this.zone_size = zone_size;
     this.num_zones = num_zones;
     this.total_chunks = (zone_size / w.chunkSize) * num_zones;
