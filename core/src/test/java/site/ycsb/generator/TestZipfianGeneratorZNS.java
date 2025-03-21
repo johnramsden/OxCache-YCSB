@@ -16,9 +16,8 @@ public class TestZipfianGeneratorZNS {
 
 //    final int zone_size = 1077 * 1024 * 1024;
 //    final int num_zones = 100;
-    final int zone_size = 512*1024 * 1024;
-    final int num_zones = 150;
-    final int iterations = 100000;
+    final int zone_size = 1077 * 1024 * 1024;
+    final int num_zones = 904;
 
     final String directory = "./target/workloads/";
     final Workload[] workloads = {
