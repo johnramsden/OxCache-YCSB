@@ -23,12 +23,12 @@ public class ZipfianWorkloadGenerator {
   @Override
   public String toString() {
     return workload.toString() +
-        ",distributionType=" + distributionType +
-        ",working_set_ratio=" + working_set_ratio +
+        ",distr=" + distributionType +
+        ",ratio=" + working_set_ratio +
         ",zone_size=" + zone_size +
         ",iterations=" + iterations +
-        ",num_zones=" + num_zones +
-        ",total_chunks=" + total_chunks;
+        ",n_zones=" + num_zones +
+        ",chunks=" + total_chunks;
   }
 
   public ZipfianWorkloadGenerator(Workload w, distributionType distributionType, int working_set_ratio, int zone_size,

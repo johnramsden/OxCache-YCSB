@@ -11,9 +11,9 @@ public class Workload {
     public String toString() {
         return "chunk_size=" + chunkSize +
                ",latency=" + latency +
-               ",evict_high_water=" + evictThresholdHigh +
-               ",evict_low_water=" + evictThresholdLow +
-               ",eviction_type=" + evictionType +
+               ",evict_high=" + evictThresholdHigh +
+               ",evict_low=" + evictThresholdLow +
+               ",eviction=" + evictionType +
                ",iterations=" + iterations;
     }
 
