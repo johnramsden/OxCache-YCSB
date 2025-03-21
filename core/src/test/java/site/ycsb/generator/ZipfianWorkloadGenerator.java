@@ -10,8 +10,7 @@ import java.nio.ByteOrder;
 import static org.testng.AssertJUnit.assertFalse;
 
 public class ZipfianWorkloadGenerator {
-  private int chunk_size;
-  private int latency;
+  private Workload workload;
   private distributionType distributionType;
   private int working_set_ratio;
   private int zone_size;
@@ -23,8 +22,7 @@ public class ZipfianWorkloadGenerator {
 
   @Override
   public String toString() {
-    return "chunk_size=" + chunk_size +
-        ",latency=" + latency +
+    return workload.toString() +
         ",distributionType=" + distributionType +
         ",working_set_ratio=" + working_set_ratio +
         ",zone_size=" + zone_size +
@@ -33,16 +31,15 @@ public class ZipfianWorkloadGenerator {
         ",total_chunks=" + total_chunks;
   }
 
-  public ZipfianWorkloadGenerator(int chunk_size, int latency, distributionType distributionType, int working_set_ratio, int zone_size,
+  public ZipfianWorkloadGenerator(Workload w, distributionType distributionType, int working_set_ratio, int zone_size,
                                   int num_zones, int iterations, String directory) {
-    this.chunk_size = chunk_size;
-    this.latency = latency;
+    this.workload = w;
     this.distributionType = distributionType;
     this.working_set_ratio = working_set_ratio;
     this.iterations = iterations;
     this.zone_size = zone_size;
     this.num_zones = num_zones;
-    this.total_chunks = (zone_size / chunk_size) * num_zones;
+    this.total_chunks = (zone_size / w.chunkSize) * num_zones;
     this.file_name = toString();
     this.directory = directory;
   }

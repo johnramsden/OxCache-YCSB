@@ -14,26 +14,25 @@ public class TestZipfianGeneratorZNS {
   @Test
   public void Run() throws IOException {
 
-    final int zone_size = 1077 * 1024 * 1024;
-    final int num_zones = 904;
-//    final int zone_size = 1024 * 1024;
-//    final int num_zones = 28;
+//    final int zone_size = 1077 * 1024 * 1024;
+//    final int num_zones = 100;
+    final int zone_size = 512*1024 * 1024;
+    final int num_zones = 150;
     final int iterations = 100000;
 
     final String directory = "./target/workloads/";
-    final int[][] chunk_sizes = {
-        {(int) Math.pow(2, 16), 40430}, // 64KiB, mean us latency
-        {(int) Math.pow(2, 29), 5413781}  // 512 MiB, mean us latency
+    final Workload[] workloads = {
+        new Workload((int) Math.pow(2, 16), 40430, 8, 16, "ZN_EVICT_PROMOTE_ZONE"),
+        new Workload((int) Math.pow(2, 29), 5413781, 8, 16, "ZN_EVICT_PROMOTE_ZONE"),
     };
 
     final int[] workingSetRatios = new int[]{10, 1};
 
-    for (int[] chunk_size : chunk_sizes) {
+    for (Workload w : workloads) {
         for(distributionType distributionType : distributionType.values()) {
           for (int workingSetRatio : workingSetRatios) {
             ZipfianWorkloadGenerator generator = new ZipfianWorkloadGenerator(
-                chunk_size[0],
-                chunk_size[1],
+                w,
                 distributionType,
                 workingSetRatio,
                 zone_size,
