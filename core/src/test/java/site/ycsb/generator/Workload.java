@@ -16,7 +16,7 @@ public class Workload {
                ",evict_low=" + evictThresholdLow +
                ",eviction=" + evictionType +
                ",iterations=" + iterations +
-               ",z=" + zones;
+               ",n_zones=" + zones;
     }
 
     Workload(int chunkSize, int latency, int iterations, int evictThresholdHigh, int evictThresholdLow, String evictionType, int zones) {
