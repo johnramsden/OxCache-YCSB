@@ -27,18 +27,17 @@ public class ZipfianWorkloadGenerator {
         ",ratio=" + working_set_ratio +
         ",zone_size=" + zone_size +
         ",iterations=" + iterations +
-        ",n_zones=" + num_zones +
         ",chunks=" + total_chunks;
   }
 
   public ZipfianWorkloadGenerator(Workload w, distributionType distributionType, int working_set_ratio, int zone_size,
-                                  int num_zones, String directory) {
+                                  String directory) {
     this.workload = w;
     this.distributionType = distributionType;
     this.working_set_ratio = working_set_ratio;
     this.iterations = w.iterations;
     this.zone_size = zone_size;
-    this.num_zones = num_zones;
+    this.num_zones = w.zones;
     this.total_chunks = (zone_size / w.chunkSize) * num_zones;
     this.file_name = toString();
     this.directory = directory;
@@ -79,9 +78,9 @@ public class ZipfianWorkloadGenerator {
 
             arr.putInt(rnd);
 
-            // Also write to the text file
-            textWriter.write(i + ": " + rnd);
-            textWriter.newLine();
+//            // Also write to the text file
+//            textWriter.write(i + ": " + rnd);
+//            textWriter.newLine();
           }
           break;
 
@@ -89,8 +88,8 @@ public class ZipfianWorkloadGenerator {
           for (int i = 0; i < iterations; i++) {
             arr.putInt(i);
 
-            textWriter.write(i + ": " + i);
-            textWriter.newLine();
+//            textWriter.write(i + ": " + i);
+//            textWriter.newLine();
           }
           break;
 
@@ -99,8 +98,8 @@ public class ZipfianWorkloadGenerator {
             int rnd = rand.nextInt(total_ids);
             arr.putInt(rnd);
 
-            textWriter.write(i + ": " + rnd);
-            textWriter.newLine();
+//            textWriter.write(i + ": " + rnd);
+//            textWriter.newLine();
           }
           break;
       }
@@ -109,7 +108,7 @@ public class ZipfianWorkloadGenerator {
 
     }
 
-    System.out.println("Generated files: " + outputBinary.getAbsolutePath() + ", " + outputText.getAbsolutePath());
+    System.out.println("Generated files: \n" + outputBinary.getAbsolutePath());
   }
 
 }

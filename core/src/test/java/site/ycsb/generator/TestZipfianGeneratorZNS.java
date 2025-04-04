@@ -17,12 +17,11 @@ public class TestZipfianGeneratorZNS {
 //    final int zone_size = 1077 * 1024 * 1024;
 //    final int num_zones = 100;
     final int zone_size = 1077 * 1024 * 1024;
-    final int num_zones = 200;
 
     final String directory = "./target/workloads/";
     final Workload[] workloads = {
-        new Workload((int) Math.pow(2, 16), 40632, 98304000, 8, 16, "ZN_EVICT_PROMOTE_ZONE"),
-        new Workload((int) Math.pow(2, 29), 5413781, 12_000, 8, 16, "ZN_EVICT_PROMOTE_ZONE"),
+        new Workload((int) Math.pow(2, 16), 40632, 9830400, 8, 16, "ZN_EVICT_PROMOTE_ZONE", 20),
+        new Workload((int) Math.pow(2, 29), 5413781, 12_000, 8, 16, "ZN_EVICT_PROMOTE_ZONE", 200),
     };
 
     final int[] workingSetRatios = new int[]{10, 2, 1};
@@ -35,7 +34,6 @@ public class TestZipfianGeneratorZNS {
                 distributionType,
                 workingSetRatio,
                 zone_size,
-                num_zones,
                 directory);
 
             generator.generateWorkloadFile();
