@@ -20,7 +20,7 @@ public class TestZipfianGeneratorZNS {
 
     final String directory = "./target/workloads/";
     final Workload[] workloads = {
-        new Workload((int) Math.pow(2, 16), 40632, 9830400, 8, 16, "ZN_EVICT_PROMOTE_ZONE", 20),
+        new Workload((int) Math.pow(2, 16), 40632, 9830400, 1, 2, "ZN_EVICT_PROMOTE_ZONE", 20),
         new Workload((int) Math.pow(2, 29), 5413781, 12_000, 8, 16, "ZN_EVICT_PROMOTE_ZONE", 200),
     };
 
