@@ -48,13 +48,13 @@ public class ZipfianWorkloadGenerator {
     new File(directory).mkdirs();
 
     File outputBinary = new File(this.directory + this.file_name + ".bin");
-    File outputText = new File(this.directory + this.file_name + ".txt");
+//    File outputText = new File(this.directory + this.file_name + ".txt");
 
     try (
         FileOutputStream binaryStream = new FileOutputStream(outputBinary);
         // Use a BufferedWriter for the text file
-        java.io.BufferedWriter textWriter = new java.io.BufferedWriter(
-            new java.io.FileWriter(outputText))
+//        java.io.BufferedWriter textWriter = new java.io.BufferedWriter(
+//            new java.io.FileWriter(outputText))
     ) {
       // Generate the data IDs that will be referenced in the workload
       int total_ids = total_chunks * working_set_ratio;
@@ -84,14 +84,14 @@ public class ZipfianWorkloadGenerator {
           }
           break;
 
-        case SEQUENTIAL:
-          for (int i = 0; i < iterations; i++) {
-            arr.putInt(i);
-
-//            textWriter.write(i + ": " + i);
-//            textWriter.newLine();
-          }
-          break;
+//        case SEQUENTIAL:
+//          for (int i = 0; i < iterations; i++) {
+//            arr.putInt(i);
+//
+////            textWriter.write(i + ": " + i);
+////            textWriter.newLine();
+//          }
+//          break;
 
         case UNIFORM:
           for (int i = 0; i < iterations; i++) {
