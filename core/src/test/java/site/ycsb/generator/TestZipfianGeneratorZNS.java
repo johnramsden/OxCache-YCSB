@@ -24,7 +24,7 @@ public class TestZipfianGeneratorZNS {
 //        new Workload((int) Math.pow(2, 29), 5413781, 12_000, 8, 16, "ZN_EVICT_PROMOTE_ZONE", 200),
 //    };
     final Workload[] workloads = {
-        new Workload((int) Math.pow(2, 29), 5413781, 50000, 8, 16, "ZN_EVICT_PROMOTE_ZONE", 0),
+        new Workload((int) Math.pow(2, 29), 5413781, 50000, 8, 16, "ZN_EVICT_PROMOTE_ZONE", 904),
     };
 
     final int[] workingSetRatios = new int[]{10, 2, 1};
