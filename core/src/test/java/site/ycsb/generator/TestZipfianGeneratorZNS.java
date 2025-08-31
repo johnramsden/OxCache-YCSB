@@ -25,12 +25,15 @@ public class TestZipfianGeneratorZNS {
 
     final String directory = "./target/workloads/";
     final Workload[] workloads = {
-        // Promotional
-        new Workload((int) Math.pow(2, 16), 40632, 19660800, 1, 2, null, null, "promotional", 80),
-        new Workload((int) Math.pow(2, 29), 5413781, 6_000, 8, 16, null, null, "promotional", 200),
-        // Chunk
-        new Workload((int) Math.pow(2, 16), 40632, 19660800, chunks_in_64K, chunks_in_64K*2, Optional.of(chunks_in_64K), Optional.of(chunks_in_64K / 2), "chunk", 80),
+        // Promotional - parameter eval
+        new Workload((int) Math.pow(2, 16), 40632, 9830400, 1, 2, Optional.empty(), Optional.empty(), "promotional", 40),
+        new Workload((int) Math.pow(2, 29), 5413781, 6_000, 8, 16, Optional.empty(), Optional.empty(), "promotional", 200),
+        // Chunk - parameter eval
+        new Workload((int) Math.pow(2, 16), 40632, 9830400, chunks_in_64K, chunks_in_64K*2, Optional.of(chunks_in_64K), Optional.of(chunks_in_64K / 2), "chunk", 40),
         new Workload((int) Math.pow(2, 29), 5413781, 6_000, chunks_in_512M*8, chunks_in_512M*16, Optional.of(chunks_in_512M*8), Optional.of(chunks_in_512M*4), "chunk", 200),
+        // Promo - GC Eval
+        new Workload((int) Math.pow(2, 28), 0, 6_000, 8, 16, Optional.empty(), Optional.empty(), "promotional", 904),
+        new Workload((int) Math.pow(2, 28), 3209583, 6_000, 8, 16, Optional.empty(), Optional.empty(), "promotional", 904),
     };
 
     final int[] workingSetRatios = new int[]{10, 2};
