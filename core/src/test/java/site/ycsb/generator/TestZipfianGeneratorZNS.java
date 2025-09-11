@@ -41,7 +41,7 @@ public class TestZipfianGeneratorZNS {
         // Chunk - parameter eval, SIGMETRICS
         new Workload((int) Math.pow(2, 16), 40632, 2*49152000, chunks_in_64K, chunks_in_64K*16, Optional.of(chunks_in_64K), Optional.of(chunks_in_64K / 2), "chunk", 904),
         new Workload((int) Math.pow(2, 28), 3209583, 2*12_000, 4*chunks_in_256M, chunks_in_256M*16, Optional.of(4*chunks_in_256M), Optional.of(chunks_in_256M * 2), "chunk", 904),
-        new Workload(zone_size, 11524248, 2*3_000, 8*chunks_in_1077M, chunks_in_1077M*24, Optional.of(8*chunks_in_1077M), Optional.of(chunks_in_256M * 4), "chunk", 904),
+        new Workload(zone_size, 11524248, 2*3_000, 8*chunks_in_1077M, chunks_in_1077M*24, Optional.of(8*chunks_in_1077M), Optional.of(chunks_in_1077M * 4), "chunk", 904),
     };
 
 
