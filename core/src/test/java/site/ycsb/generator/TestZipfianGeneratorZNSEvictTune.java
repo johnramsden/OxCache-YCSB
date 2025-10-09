@@ -16,8 +16,11 @@ public class TestZipfianGeneratorZNSEvictTune {
 
     long six_tib = 6L * 1024 * 1024 * 1024 * 1024;
 
-    int chunks_in_64K = (int) (zone_size / Math.pow(2, 16));
-    int chunks_in_256M = (int) (zone_size / Math.pow(2, 28));
+    int sz_64k = (int) Math.pow(2, 16);
+    int sz_256m = (int) Math.pow(2, 28);
+
+    int chunks_in_64K = (zone_size / sz_64k);
+    int chunks_in_256M = (zone_size / sz_256m);
     int chunks_in_1077M = 1;
     final int workingSetRatio = 10;
     distributionType distributionType = site.ycsb.generator.distributionType.UNIFORM;
@@ -63,10 +66,10 @@ public class TestZipfianGeneratorZNSEvictTune {
     for (int[] p : promo_spread) {
       int H = p[0] + 1, L = p[1] + 1;  // Add one due to reserved zone
       // Small (64KiB)
-      promoList.add(new Workload((int) Math.pow(2, 16), 40632, (int) (six_tib / chunks_in_64K), H, L,
+      promoList.add(new Workload((int) Math.pow(2, 16), 40632, (int) (six_tib / sz_64k), H, L,
           Optional.empty(), "promotional", 904));
       // Medium (256MiB)
-      promoList.add(new Workload((int) Math.pow(2, 28), 3209583, (int) (six_tib / chunks_in_256M), H, L,
+      promoList.add(new Workload((int) Math.pow(2, 28), 3209583, (int) (six_tib / sz_256m), H, L,
           Optional.empty(), "promotional", 904));
     }
 
@@ -76,10 +79,10 @@ public class TestZipfianGeneratorZNSEvictTune {
       int H = c[0] + 1, L = c[1] + 1, C = c[2];  // Add one due to reserved zone, dont adjust C since based on L-H which is unchanged
 
       // Small (64KiB)
-      chunkList.add(new Workload((int) Math.pow(2, 16), 40632, (int) (six_tib / chunks_in_64K), H * chunks_in_64K, L * chunks_in_64K,
+      chunkList.add(new Workload((int) Math.pow(2, 16), 40632, (int) (six_tib / sz_64k), H * chunks_in_64K, L * chunks_in_64K,
           Optional.of(C * chunks_in_64K), "chunk", 904));
       // Medium (256MiB)
-      chunkList.add(new Workload((int) Math.pow(2, 28), 3209583, (int) (six_tib / chunks_in_256M), H * chunks_in_256M, L * chunks_in_256M,
+      chunkList.add(new Workload((int) Math.pow(2, 28), 3209583, (int) (six_tib / sz_256m), H * chunks_in_256M, L * chunks_in_256M,
           Optional.of(C * chunks_in_256M), "chunk", 904));
     }
 
