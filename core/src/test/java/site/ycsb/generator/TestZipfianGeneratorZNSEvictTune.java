@@ -18,6 +18,7 @@ public class TestZipfianGeneratorZNSEvictTune {
 
     int sz_64k = (int) Math.pow(2, 16);
     int sz_256m = (int) Math.pow(2, 28);
+    int sz_1077m = 1024*1024*1077;
 
     int chunks_in_64K = (zone_size / sz_64k);
     int chunks_in_256M = (zone_size / sz_256m);
@@ -66,10 +67,13 @@ public class TestZipfianGeneratorZNSEvictTune {
     for (int[] p : promo_spread) {
       int H = p[0] + 1, L = p[1] + 1;  // Add one due to reserved zone
       // Small (64KiB)
-      promoList.add(new Workload((int) Math.pow(2, 16), 40632, (int) (six_tib / sz_64k), H, L,
+      promoList.add(new Workload(sz_64k, 40632, (int) (six_tib / sz_64k), H, L,
           Optional.empty(), "promotional", 904));
       // Medium (256MiB)
-      promoList.add(new Workload((int) Math.pow(2, 28), 3209583, (int) (six_tib / sz_256m), H, L,
+      promoList.add(new Workload(sz_256m, 3209583, (int) (six_tib / sz_256m), H, L,
+          Optional.empty(), "promotional", 904));
+      // Full zone (1077MiB)
+      promoList.add(new Workload(sz_1077m, 11524248, (int) (six_tib / sz_1077m), H, L,
           Optional.empty(), "promotional", 904));
     }
 
