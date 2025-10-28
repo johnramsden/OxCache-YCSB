@@ -2,15 +2,10 @@ package site.ycsb.generator;
 
 import org.testng.annotations.Test;
 
-import java.io.*;
-import java.nio.ByteBuffer;
-import java.util.List;
+import java.io.IOException;
 import java.util.Optional;
-import java.util.Random;
 
-import static org.testng.AssertJUnit.assertFalse;
-
-public class TestZipfianGeneratorZNS {
+public class TestZipfianGeneratorBLOCK {
 
   @Test
   public void Run() throws IOException {
@@ -36,7 +31,7 @@ public class TestZipfianGeneratorZNS {
     int iterations_256m = 24_000;
     int iterations_1077m = 6_000;
 
-    final String directory = "./target/workloadszoned/";
+    final String directory = "./target/workloadsblock/";
 
     // Evict best params
     final Workload[] workloads = {
@@ -46,67 +41,65 @@ public class TestZipfianGeneratorZNS {
         // ZONED EVICT (Promotional)
         // new Workload(SIZE, LATENCY, ITERATIONS, H+1, L+1, Optional.empty(), "promotional", 904),
 
-        // ---------------------- Zoned ----------------------
-
-        // Zoned • 64KiB • Chunk • H=4 L=12 C=4
+        // Block • 64KiB • Chunk • H=1 L=5 C=0
         new Workload(
             sz_64k,
             latency_64k,
             iterations_64k,
-            (chunks_in_64K * 4 + 1),
-            (chunks_in_64K * 12 + 1),
-            Optional.of(chunks_in_64K * 4),
+            (chunks_in_64K * 1 + 1),
+            (chunks_in_64K * 5 + 1),
+            Optional.of(chunks_in_64K * 0),
             "chunk",
             904
         ),
 
-        // Zoned • 64KiB • Zone • H=1 L=9
+        // Block • 64KiB • Zone • H=4 L=8
         new Workload(
             sz_64k,
             latency_64k,
             iterations_64k,
-            (1 + 1),
-            (9 + 1),
+            (4 + 1),
+            (8 + 1),
             Optional.empty(),
             "promotional",
             904
         ),
 
-        // Zoned • 256MiB • Chunk • H=1 L=9 C=6
+        // Block • 256MiB • Chunk • H=1 L=9 C=0
         new Workload(
             sz_256m,
             latency_256m,
             iterations_256m,
             (chunks_in_256M * 1 + 1),
             (chunks_in_256M * 9 + 1),
-            Optional.of(chunks_in_256M * 6),
+            Optional.of(chunks_in_256M * 0),
             "chunk",
             904
         ),
 
-        // Zoned • 256MiB • Zone • H=8 L=16
+        // Block • 256MiB • Zone • H=1 L=5
         new Workload(
             sz_256m,
             latency_256m,
             iterations_256m,
-            (8 + 1),
-            (16 + 1),
+            (1 + 1),
+            (5 + 1),
             Optional.empty(),
             "promotional",
             904
         ),
 
-        // Zoned • 1077MiB • Zone • H=8 L=12
+        // Block • 1077MiB • Zone • H=1 L=2
         new Workload(
             sz_1077m,
             latency_1077m,
             iterations_1077m,
-            (8 + 1),
-            (12 + 1),
+            (1 + 1),
+            (2 + 1),
             Optional.empty(),
             "promotional",
             904
-        ),
+        )
     };
 
     final int[] workingSetRatios = new int[]{10, 2};
