@@ -24,7 +24,7 @@ public class TestZipfianGeneratorGCBLOCK {
     // 6TB
     int iterations_256m = 24_000;
 
-    final String directory = "./target/workloadsgc/";
+    final String directory = "./target/workloadsgcblock/";
 
     // Evict best params
     final Workload[] workloads = {
