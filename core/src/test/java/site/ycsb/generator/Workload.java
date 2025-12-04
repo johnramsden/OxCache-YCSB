@@ -11,6 +11,7 @@ public class Workload {
     public int iterations;
     public int zones;
     public String evictionType;
+    public int clientThreads;
 
     public String toString() {
         String ret = "chunk_size=" + chunkSize +
@@ -19,14 +20,15 @@ public class Workload {
                ",evict_low=" + evictThresholdLow +
                ",eviction=" + evictionType +
                ",iterations=" + iterations +
-               ",n_zones=" + zones;
+               ",n_zones=" + zones +
+               ",t=" + clientThreads;
         if (cleanThresholdLow.isPresent()) {
             ret += ",clean_low=" + cleanThresholdLow.get();
         }
         return ret;
     }
 
-    Workload(int chunkSize, int latency, int iterations, int evictThresholdHigh, int evictThresholdLow, Optional<Integer> cleanThresholdLow, String evictionType, int zones) {
+    Workload(int chunkSize, int latency, int iterations, int evictThresholdHigh, int evictThresholdLow, Optional<Integer> cleanThresholdLow, String evictionType, int zones, int clientThreads) {
         this.chunkSize = chunkSize;
         this.latency = latency;
         this.iterations = iterations;
@@ -35,5 +37,6 @@ public class Workload {
         this.cleanThresholdLow = cleanThresholdLow;
         this.evictionType = evictionType;
         this.zones = zones;
+        this.clientThreads = clientThreads;
     }
 }

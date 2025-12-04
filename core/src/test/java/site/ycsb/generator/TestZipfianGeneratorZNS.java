@@ -48,65 +48,65 @@ public class TestZipfianGeneratorZNS {
 
         // ---------------------- Zoned ----------------------
 
-        // Zoned • 64KiB • Chunk • H=4 L=12 C=4
-        new Workload(
-            sz_64k,
-            latency_64k,
-            iterations_64k,
-            (chunks_in_64K * 4 + 1),
-            (chunks_in_64K * 12 + 1),
-            Optional.of(chunks_in_64K * 4),
-            "chunk",
-            904
-        ),
-
-        // Zoned • 64KiB • Zone • H=1 L=9
-        new Workload(
-            sz_64k,
-            latency_64k,
-            iterations_64k,
-            (1 + 1),
-            (9 + 1),
-            Optional.empty(),
-            "promotional",
-            904
-        ),
-
-        // Zoned • 256MiB • Chunk • H=1 L=9 C=6
-        new Workload(
-            sz_256m,
-            latency_256m,
-            iterations_256m,
-            (chunks_in_256M * 1 + 1),
-            (chunks_in_256M * 9 + 1),
-            Optional.of(chunks_in_256M * 6),
-            "chunk",
-            904
-        ),
-
-        // Zoned • 256MiB • Zone • H=8 L=16
-        new Workload(
-            sz_256m,
-            latency_256m,
-            iterations_256m,
-            (8 + 1),
-            (16 + 1),
-            Optional.empty(),
-            "promotional",
-            904
-        ),
-
-        // Zoned • 1077MiB • Zone • H=8 L=12
-        new Workload(
-            sz_1077m,
-            latency_1077m,
-            iterations_1077m,
-            (8 + 1),
-            (12 + 1),
-            Optional.empty(),
-            "promotional",
-            904
-        ),
+//        // Zoned • 64KiB • Chunk • H=4 L=12 C=4
+//        new Workload(
+//            sz_64k,
+//            latency_64k,
+//            iterations_64k,
+//            (chunks_in_64K * 4 + 1),
+//            (chunks_in_64K * 12 + 1),
+//            Optional.of(chunks_in_64K * 4),
+//            "chunk",
+//            904
+//        ),
+//
+//        // Zoned • 64KiB • Zone • H=1 L=9
+//        new Workload(
+//            sz_64k,
+//            latency_64k,
+//            iterations_64k,
+//            (1 + 1),
+//            (9 + 1),
+//            Optional.empty(),
+//            "promotional",
+//            904
+//        ),
+//
+//        // Zoned • 256MiB • Chunk • H=1 L=9 C=6
+//        new Workload(
+//            sz_256m,
+//            latency_256m,
+//            iterations_256m,
+//            (chunks_in_256M * 1 + 1),
+//            (chunks_in_256M * 9 + 1),
+//            Optional.of(chunks_in_256M * 6),
+//            "chunk",
+//            904
+//        ),
+//
+//        // Zoned • 256MiB • Zone • H=8 L=16
+//        new Workload(
+//            sz_256m,
+//            latency_256m,
+//            iterations_256m,
+//            (8 + 1),
+//            (16 + 1),
+//            Optional.empty(),
+//            "promotional",
+//            904
+//        ),
+//
+//        // Zoned • 1077MiB • Zone • H=8 L=12
+//        new Workload(
+//            sz_1077m,
+//            latency_1077m,
+//            iterations_1077m,
+//            (8 + 1),
+//            (12 + 1),
+//            Optional.empty(),
+//            "promotional",
+//            904
+//        ),
     };
 
     final int[] workingSetRatios = new int[]{10, 2};

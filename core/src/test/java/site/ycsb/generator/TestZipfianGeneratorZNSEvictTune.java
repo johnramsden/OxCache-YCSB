@@ -68,13 +68,13 @@ public class TestZipfianGeneratorZNSEvictTune {
       int H = p[0] + 1, L = p[1] + 1;  // Add one due to reserved zone
       // Small (64KiB)
       promoList.add(new Workload(sz_64k, 40632, (int) (six_tib / sz_64k), H, L,
-          Optional.empty(), "promotional", 904));
+          Optional.empty(), "promotional", 904, 1024));
       // Medium (256MiB)
       promoList.add(new Workload(sz_256m, 3209583, (int) (six_tib / sz_256m), H, L,
-          Optional.empty(), "promotional", 904));
+          Optional.empty(), "promotional", 904, 256));
       // Full zone (1077MiB)
       promoList.add(new Workload(sz_1077m, 11524248, (int) (six_tib / sz_1077m), H, L,
-          Optional.empty(), "promotional", 904));
+          Optional.empty(), "promotional", 904, 64));
     }
 
     // Build chunk workloads
@@ -84,10 +84,10 @@ public class TestZipfianGeneratorZNSEvictTune {
 
       // Small (64KiB)
       chunkList.add(new Workload((int) Math.pow(2, 16), 40632, (int) (six_tib / sz_64k), H * chunks_in_64K, L * chunks_in_64K,
-          Optional.of(C * chunks_in_64K), "chunk", 904));
+          Optional.of(C * chunks_in_64K), "chunk", 904, 1024));
       // Medium (256MiB)
       chunkList.add(new Workload((int) Math.pow(2, 28), 3209583, (int) (six_tib / sz_256m), H * chunks_in_256M, L * chunks_in_256M,
-          Optional.of(C * chunks_in_256M), "chunk", 904));
+          Optional.of(C * chunks_in_256M), "chunk", 904, 256));
     }
 
     // Could be same array before but it's nice to keep them separate
