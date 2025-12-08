@@ -41,65 +41,70 @@ public class TestZipfianGeneratorBLOCK {
         // ZONED EVICT (Promotional)
         // new Workload(SIZE, LATENCY, ITERATIONS, H+1, L+1, Optional.empty(), "promotional", 904),
 
-//        // Block • 64KiB • Chunk • H=1 L=5 C=0
-//        new Workload(
-//            sz_64k,
-//            latency_64k,
-//            iterations_64k,
-//            (chunks_in_64K * 1 + 1),
-//            (chunks_in_64K * 5 + 1),
-//            Optional.of(chunks_in_64K * 0),
-//            "chunk",
-//            904
-//        ),
-//
-//        // Block • 64KiB • Zone • H=4 L=8
-//        new Workload(
-//            sz_64k,
-//            latency_64k,
-//            iterations_64k,
-//            (4 + 1),
-//            (8 + 1),
-//            Optional.empty(),
-//            "promotional",
-//            904
-//        ),
-//
-//        // Block • 256MiB • Chunk • H=1 L=9 C=0
-//        new Workload(
-//            sz_256m,
-//            latency_256m,
-//            iterations_256m,
-//            (chunks_in_256M * 1 + 1),
-//            (chunks_in_256M * 9 + 1),
-//            Optional.of(chunks_in_256M * 0),
-//            "chunk",
-//            904
-//        ),
-//
-//        // Block • 256MiB • Zone • H=1 L=5
-//        new Workload(
-//            sz_256m,
-//            latency_256m,
-//            iterations_256m,
-//            (1 + 1),
-//            (5 + 1),
-//            Optional.empty(),
-//            "promotional",
-//            904
-//        ),
-//
-//        // Block • 1077MiB • Zone • H=1 L=2
-//        new Workload(
-//            sz_1077m,
-//            latency_1077m,
-//            iterations_1077m,
-//            (1 + 1),
-//            (2 + 1),
-//            Optional.empty(),
-//            "promotional",
-//            904
-//        )
+        // Block • 64KiB • Chunk • H=1 L=5 C=0
+        new Workload(
+            sz_64k,
+            latency_64k,
+            iterations_64k,
+            (chunks_in_64K * 1 + 1),
+            (chunks_in_64K * 5 + 1),
+            Optional.of(chunks_in_64K * 0),
+            "chunk",
+            904,
+            1024
+        ),
+
+        // Block • 64KiB • Zone • H=4 L=8
+        new Workload(
+            sz_64k,
+            latency_64k,
+            iterations_64k,
+            (4 + 1),
+            (8 + 1),
+            Optional.empty(),
+            "promotional",
+            904,
+            1024
+        ),
+
+        // Block • 256MiB • Chunk • H=1 L=9 C=0
+        new Workload(
+            sz_256m,
+            latency_256m,
+            iterations_256m,
+            (chunks_in_256M * 1 + 1),
+            (chunks_in_256M * 9 + 1),
+            Optional.of(chunks_in_256M * 0),
+            "chunk",
+            904,
+            256
+        ),
+
+        // Block • 256MiB • Zone • H=1 L=5
+        new Workload(
+            sz_256m,
+            latency_256m,
+            iterations_256m,
+            (1 + 1),
+            (5 + 1),
+            Optional.empty(),
+            "promotional",
+            904,
+            256
+        ),
+
+        // Block • 1077MiB • Zone • H=1 L=2
+        new Workload(
+            sz_1077m,
+            latency_1077m,
+            iterations_1077m,
+            (1 + 1),
+            (2 + 1),
+            Optional.empty(),
+            "promotional",
+            904,
+            64
+        )
     };
 
     final int[] workingSetRatios = new int[]{10, 2};
