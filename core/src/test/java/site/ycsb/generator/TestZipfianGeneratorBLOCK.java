@@ -41,7 +41,7 @@ public class TestZipfianGeneratorBLOCK {
         // ZONED EVICT (Promotional)
         // new Workload(SIZE, LATENCY, ITERATIONS, H+1, L+1, Optional.empty(), "promotional", 904),
 
-        // Block • 64KiB • Chunk • H=1 L=5 C=0
+        // Block • 64KiB • Chunk • H=4 L=12 C=0
         new Workload(
             sz_64k,
             latency_64k,
