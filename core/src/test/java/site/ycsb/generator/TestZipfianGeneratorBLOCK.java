@@ -26,10 +26,10 @@ public class TestZipfianGeneratorBLOCK {
     int latency_256m = 3209583;
     int latency_1077m = 5413781;
 
-    // 6TB
-    int iterations_64k = 98_304_000; // (6000*1024^3)/(64*1024)
-    int iterations_256m = 24_000;
-    int iterations_1077m = 6_000;
+    // 12TB
+    int iterations_64k = 2*98_304_000; // 2*(6000*1024^3)/(64*1024)
+    int iterations_256m = 48_000;
+    int iterations_1077m = 12_000;
 
     final String directory = "./target/workloadsblock/";
 
