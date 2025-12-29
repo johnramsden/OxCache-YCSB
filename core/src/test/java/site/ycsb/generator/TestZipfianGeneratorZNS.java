@@ -20,19 +20,23 @@ public class TestZipfianGeneratorZNS {
     final int zone_size = 1077 * 1024 * 1024;
 
     int sz_64k = (int) Math.pow(2, 16);
+    int sz_8m = (int) Math.pow(2, 23);
     int sz_256m = (int) Math.pow(2, 28);
     int sz_1077m = 1024*1024*1077;
 
     int chunks_in_64K = (zone_size / sz_64k);
+    int chunks_in_8M = (zone_size / sz_8m);
     int chunks_in_256M = (zone_size / sz_256m);
     int chunks_in_1077M = 1;
 
     int latency_64k = 40632;
+    int latency_8m = 127835;
     int latency_256m = 3209583;
     int latency_1077m = 5413781;
 
     // 12TB
     int iterations_64k = 2*98_304_000; // 2*(6000*1024^3)/(64*1024)
+    int iterations_8m = 1_536_000;
     int iterations_256m = 48_000;
     int iterations_1077m = 12_000;
 
@@ -73,6 +77,33 @@ public class TestZipfianGeneratorZNS {
             904,
             1024
         ),
+
+//        // Zoned • 8MiB • Chunk • H=1 L=9 C=6
+//        new Workload(
+//            sz_8m,
+//            latency_8m,
+//            iterations_8m,
+//            (chunks_in_8M * 1 + 1),
+//            (chunks_in_8M * 9 + 1),
+//            Optional.of(chunks_in_8M * 6),
+//            "chunk",
+//            904,
+//            512
+//        ),
+//
+//        // Zoned • 8MiB • Zone • H=8 L=16
+//        new Workload(
+//            sz_8m,
+//            latency_8m,
+//            iterations_8m,
+//            (8 + 1),
+//            (16 + 1),
+//            Optional.empty(),
+//            "promotional",
+//            904,
+//            512
+//        ),
+
 
         // Zoned • 256MiB • Chunk • H=1 L=9 C=6
         new Workload(
